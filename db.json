@@ -1,0 +1,31 @@
+{
+  "passengers": [
+    {
+      "name": "Sun",
+      "id": 4,
+      "checkedIn": true,
+      "baggage": "hand-only",
+      "checkedInDate": "14/07/2019"
+    },
+    {
+      "name": "Omri",
+      "id": 41,
+      "checkedIn": true,
+      "baggage": "none",
+      "checkedInDate": 1563084318990
+    },
+    {
+      "name": "Hen",
+      "id": 43,
+      "checkedIn": true,
+      "baggage": "hand-hold",
+      "checkedInDate": 1563084343497
+    },
+    {
+      "name": "Revi",
+      "id": 5,
+      "checkedIn": false,
+      "baggage": ""
+    }
+  ]
+}

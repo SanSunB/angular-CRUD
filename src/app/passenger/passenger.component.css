@@ -1,0 +1,29 @@
+section{
+  background-image: url("../../images.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+table,th,td{
+  width: 40%;
+}
+th{
+  text-align: left;
+}
+
+.sticky{
+  width: 100%;
+  top: 60px;
+  padding: 5px 9px;
+  background: #555;
+  color: #f1f1f1;
+}
+.status{
+  font-weight: bold;
+}
+.status.checked-out{
+  color: red;
+}
+.status.checked-in{
+  color: green;
+}

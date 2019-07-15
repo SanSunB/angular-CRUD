@@ -1,0 +1,19 @@
+div{
+  margin: 0 0 20px;
+}
+
+.error{
+  color: red;
+}
+
+button{
+  margin: 5px;
+  background-color:#6495ed; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
