@@ -6,6 +6,7 @@ import { Passenger } from '../passenger/models/passenger.interface';
   styleUrls: ['./passenger-details.component.css'],
   template: `
     <section>
+      <div>
         <p *ngIf="!editing">name: {{detail.name}}</p>
         <p *ngIf="editing">
         <input type="text"
@@ -13,13 +14,14 @@ import { Passenger } from '../passenger/models/passenger.interface';
         (input)="nameChange(dname.value)"
         #dname></p>
         <p>id : {{detail.id}} </p>
-        <p>Check in status : {{ detail.checkedIn ? 'Yes' : 'No'}}
-        </p>
+        <p>Check in status : {{ detail.checkedIn ? 'Yes' : 'No'}} </p>
+      </div>
+      <div>
         <button (click)="onUpdateClick()">
-          {{editing ? 'Done' : 'Edit'}}
-        </button>
+          {{editing ? 'Done' : 'Edit'}} </button>
         <button (click)="onRemoveClick()"> Remove </button>
         <button (click)="onViewClick()"> View all</button>
+      </div>
     </section>
   `
 })

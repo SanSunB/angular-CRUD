@@ -26,6 +26,25 @@
       "id": 5,
       "checkedIn": false,
       "baggage": ""
+    },
+    {
+      "name": "d",
+      "id": 1573294829626899,
+      "checkedIn": null,
+      "baggage": "none"
+    },
+    {
+      "name": "paz",
+      "id": 33,
+      "checkedIn": null,
+      "baggage": "hand-only"
+    },
+    {
+      "name": "Sun Bitan",
+      "id": 2,
+      "checkedIn": true,
+      "baggage": "hold-only",
+      "checkedInDate": null
     }
   ]
 }

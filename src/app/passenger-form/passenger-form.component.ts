@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Passenger} from '../passenger/models/passenger.interface';
 import { Baggage } from '../passenger/models/baggage.interface';
 
+
 @Component({
   selector: 'app-passenger-form',
   styleUrls: ['./passenger-form.component.css'],
@@ -17,7 +18,7 @@ import { Baggage } from '../passenger/models/baggage.interface';
       required
       #name="ngModel"
       [ngModel]="detail?.name">
-      <div *ngIf="name.errors?.required && name.dirty" class="error">
+      <div *ngIf="name.errors?.required && name.touched" class="error">
         Passenger name cannot be empty
       </div>
     </div>
@@ -25,6 +26,7 @@ import { Baggage } from '../passenger/models/baggage.interface';
       Passenger id: <input
       type="number"
       name="id"
+      required
       [ngModel]="detail?.id">
   </div>
   <div>
@@ -61,26 +63,28 @@ import { Baggage } from '../passenger/models/baggage.interface';
     </div>
     <div>
       Baggage:
-      <select name="baggage" [ngModel]="detail?.baggage">
+      <select name="baggage"
+      required
+      [ngModel]="detail?.baggage">
         <option *ngFor="let item of baggage"
         [ngValue]="item.key">
           {{item.value}}
         </option>
       </select>
     </div>
-
-    <button tupe="submit" [disabled]="form.invalid">
+    <button tupe="submit"
+    [disabled]="form.invalid">
       Update passenger
     </button>
   </form>
   `
 })
-export class PassengerFormComponent implements OnInit {
+export class PassengerFormComponent {
 
-  @Input() detail: Passenger
+  @Input() detail: Passenger;
 
-  @Output()
-  update: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() update: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() create: EventEmitter<Passenger> = new EventEmitter<Passenger>();
 
   baggage: Baggage[] = [{
       key: 'none',
@@ -96,9 +100,6 @@ export class PassengerFormComponent implements OnInit {
       value: 'Hand and hold baggage'
     }];
 
-
-  ngOnInit() {
-  }
   toggleRadio(checkedIn: boolean){
       if(checkedIn){
         this.detail.checkedInDate = Date.now();
@@ -107,7 +108,12 @@ export class PassengerFormComponent implements OnInit {
 
   handleSubmit(passenger: Passenger, isValid: boolean){
     if(isValid){
-      this.update.emit(passenger)
+      // Check if we are creating a new passenger or updating existing one
+      if (this.detail===undefined) {
+        this.create.emit(passenger);
+      } else {
+        this.update.emit(passenger);
+      }
     }
   }
 }

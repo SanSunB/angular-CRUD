@@ -16,6 +16,7 @@ import 'rxjs/add/operator/switchMap';
     </button>
    <app-passenger-form
    [detail]="passenger"
+   (create)="onCreatePassenger($event)"
    (update)="onUpdatePassenger($event)">
    </app-passenger-form>
   </div>
@@ -40,6 +41,11 @@ export class PassengerViewerComponent implements OnInit {
     this.passengerService.updatePassenger(event)
         .subscribe((data : Passenger) =>{
         this.passenger = Object.assign({},this.passenger, event)});
+  }
+
+  onCreatePassenger(event: Passenger){
+    this.passengerService.createPassenger(event)
+    .subscribe((data : Passenger) => this.router.navigate(['/passengers']));
   }
 
   goBack(){

@@ -9,12 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./passenger.component.css'],
   template: `
   <section>
-    <div class="sticky">
-     <h1>Airline passengers page</h1>
+    <header>
+    <div>
+    <h1>Airline passengers page</h1>
       <app-passenger-count
       [items]="passengers">
       </app-passenger-count>
     </div>
+    <div>
+      <button (click)="handleNew()">
+       Create a new passenger
+      </button>
+    </div>
+    <div>
+      <img src="../../assets/image_passengers.jpg">
+    </div>
+    </header>
     <div class="content">
     <h3> Current passengers names </h3>
     <!-- Show all the data is updated in the smart component -->
@@ -86,5 +96,8 @@ export class PassengerComponent implements OnInit {
         return passenger;
       });
     });
+  }
+  handleNew(){
+    this.router.navigate(['/passengers/0']);
   }
 }

@@ -23,6 +23,11 @@ export class passengerServiceDashboard{
     map((response: Response) => response.json());
   }
 
+  createPassenger(passenger: Passenger): Observable<Passenger> {
+    return this.http.post(PASSENGER_API, passenger).
+    map((response: Response) => response.json());
+  }
+
   updatePassenger(passenger: Passenger): Observable<Passenger> {
     return this.http.
     put(`${PASSENGER_API}/${passenger.id}`, passenger).
